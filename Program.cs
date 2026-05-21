@@ -1,13 +1,17 @@
+using Swashbuckle.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// 1. First, register core API/Controller infrastructure services
+builder.Services.AddControllers(); 
+builder.Services.AddEndpointsApiExplorer(); 
 
-var app = builder.Build();
+// 2. Second, register Swagger 
+builder.Services.AddSwaggerGen(); 
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var app = builder.Build(); // The service collection locks right here
+
+// REMOVED DUPLICATE LINES FROM HERE (Lines 13 & 14 are gone)
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -37,6 +41,8 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.UseAuthorization();
+app.MapControllers();
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
