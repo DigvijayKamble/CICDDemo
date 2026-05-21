@@ -1,0 +1,8 @@
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.csproj.AssemblyReference.cache
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.AssemblyInfoInputs.cache
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.AssemblyInfo.cs
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.csproj.CoreCompileInputs.cache
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Digvijay Project\MySampleApi\obj\Debug\net10.0\MySampleApi.MvcApplicationPartsAssemblyInfo.cache
