@@ -42,10 +42,10 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapPost("/GetUserDeatils", ([FromBody] dynamic data) =>
+app.MapPost("/GetUserDeatils", (string name,int age, string email) =>
 {
     
-    return Results.Ok(data.Name);
+    return Results.Ok(new { Name = name, Age = age, Email = email });
 })
 .WithName("GetUserDeatils");
 

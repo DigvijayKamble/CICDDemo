@@ -14,7 +14,6 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-                  cleanWs()
                 echo "Fetching latest code from ${GIT_REPO_URL} [${GIT_BRANCH}]..."
                 
                 // For Public Repos (No credentials needed):
