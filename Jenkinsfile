@@ -87,9 +87,9 @@ pipeline {
 
                 echo 'Starting IIS App Pool...'
 
-                powershell '''
+               powershell '''
                     Import-Module WebAdministration
-                    Start-WebAppPool "${env:APP_POOL_NAME}"
+                    Start-WebAppPool "DefaultAppPool"
                 '''
             }
         }
