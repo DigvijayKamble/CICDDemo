@@ -3,6 +3,14 @@ node_modules/
 dist/
 build/
 
+bin/
+obj/
+.vs/
+.git/
+Dockerfile
+docker-compose*
+README.md
+
 # Environment variables
 .env
 .env.local
