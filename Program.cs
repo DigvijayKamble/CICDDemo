@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,11 +15,11 @@ var app = builder.Build(); // The service collection locks right here
 // REMOVED DUPLICATE LINES FROM HERE (Lines 13 & 14 are gone)
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
@@ -40,6 +41,13 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+app.MapPost("/GetUserDeatils", ([FromBody] dynamic data) =>
+{
+    
+    return Results.Ok(data.Name);
+})
+.WithName("GetUserDeatils");
 
 app.UseAuthorization();
 app.MapControllers();
