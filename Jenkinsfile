@@ -1,3 +1,4 @@
+echo "Running Jenkinsfile from GitHub"
 pipeline {
     agent any
 
