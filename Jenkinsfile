@@ -1,12 +1,16 @@
 pipeline {
     agent any
 
-    environment {
-        GIT_REPO_URL = 'https://github.com/DigvijayKamble/CICDDemo.git'
-        GIT_BRANCH   = 'main'
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
 
-        IMAGE_NAME   = 'mysampleapi'
-        IMAGE_TAG    = 'v1'
+    environment {
+        GIT_REPO_URL  = 'https://github.com/DigvijayKamble/CICDDemo.git'
+        GIT_BRANCH    = 'main'
+
+        IMAGE_NAME    = 'mysampleapi'
+        IMAGE_TAG     = 'v1'
         CONTAINER_NAME = 'mysamplecontainer'
     }
 
@@ -59,12 +63,11 @@ pipeline {
 
         stage('Docker Deploy') {
             steps {
-                echo 'Removing old container if exists...'
+                echo 'Stopping and removing existing container if present...'
 
                 bat '''
-                docker stop %CONTAINER_NAME%
-                docker rm %CONTAINER_NAME%
-                exit /b 0
+                docker stop %CONTAINER_NAME% 2>nul
+                docker rm %CONTAINER_NAME% 2>nul
                 '''
 
                 echo 'Starting new container...'
@@ -87,7 +90,4 @@ pipeline {
             echo 'Pipeline execution completed.'
         }
     }
-    triggers {
-    pollSCM('H/2 * * * *')
-}
 }
