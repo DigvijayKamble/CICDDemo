@@ -42,12 +42,20 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapPost("/GetUserDeatils", (string name,int age, string email) =>
+app.MapPost("/AddUser", (string name,int age, string email) =>
 {
     
     return Results.Ok(new { Name = name, Age = age, Email = email });
 })
-.WithName("GetUserDeatils");
+.WithName("AddUser");
+
+
+app.MapPost("/GetUser", () =>
+{
+    
+    return Results.Ok(new { Name = "Digvijay", Age = 25, Email = "digvijay@example.com" });
+})
+.WithName("GetUser");
 
 app.UseAuthorization();
 app.MapControllers();
