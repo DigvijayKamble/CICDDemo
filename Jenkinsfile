@@ -87,4 +87,7 @@ pipeline {
             echo 'Pipeline execution completed.'
         }
     }
+    triggers {
+    pollSCM('H/2 * * * *')
+}
 }
